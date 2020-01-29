@@ -1,0 +1,16 @@
+.dou-DaskLogo {
+  background-image: url(chemistry.svg);
+}
+
+#setting-editor .dou-DaskLogo {
+  background-repeat: no-repeat;
+  background-size: 85%;
+  background-position: center;
+}
+
+.dou-DaskSidebar {
+  background: var(--jp-layout-color1);
+  color: var(--jp-ui-font-color1);
+  font-size: var(--jp-ui-font-size1);
+  overflow: auto;
+}
