@@ -4,9 +4,7 @@ import {
   ILabShell
 } from '@jupyterlab/application';
 
-import { Widget } from '@phosphor/widgets';
-
-import '../style/index.css';
+import { chemSidebar } from './sidebar';
 
 /**
  * Initialization data for the osscar-labextensions extension.
@@ -24,7 +22,7 @@ function activate(
   app: JupyterFrontEnd,
   labShell: ILabShell): void {
 
-    const sidebar = new DouSidebar();
+    const sidebar = new chemSidebar();
 
     sidebar.id = 'testid';
     sidebar.title.iconClass = 'dou-DaskLogo jp-SideBar-tabIcon';
@@ -35,11 +33,5 @@ function activate(
 
   }
 
-export class DouSidebar extends Widget{
-  constructor(){
-    super();
-    this.addClass('dou-DaskSidebar');
-  }
-}
 
 export default extension;
