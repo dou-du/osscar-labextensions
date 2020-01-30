@@ -32,10 +32,13 @@
   },
   "dependencies": {
     "@jupyterlab/application": "^1.0.0",
+    "@jupyterlab/apputils": "^1.0.0",
+    "react": "~16.8.4",
     "@phosphor/widgets": "^1.8.0"
   },
   "devDependencies": {
     "rimraf": "^2.6.1",
+    "@types/react": "~16.8.13",
     "typescript": "~3.7.0"
   },
   "sideEffects": [
