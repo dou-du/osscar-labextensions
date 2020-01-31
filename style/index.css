@@ -64,3 +64,28 @@
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
+
+.code_button {
+  border: 0;
+  line-height: 2.5;
+  height: 100px;
+  width: 100px;
+  font-size: 1rem;
+  text-align: bottom;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  background-color: #000000;
+  background-image: url(computer.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: 100px auto;
+}
+
+.code_button:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.code_button:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
