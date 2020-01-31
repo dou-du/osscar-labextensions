@@ -4,6 +4,8 @@ import {
   ILabShell
 } from '@jupyterlab/application';
 
+import { INotebookTracker } from "@jupyterlab/notebook";
+
 import { chemSidebar } from './sidebar';
 
 /**
@@ -14,15 +16,17 @@ const extension: JupyterFrontEndPlugin<void> = {
   autoStart: true,
   activate: activate,
   requires: [
+    INotebookTracker,
     ILabShell
   ]
 };
 
 function activate(
   app: JupyterFrontEnd,
+  notebookTracker: INotebookTracker,
   labShell: ILabShell): void {
 
-    const sidebar = new chemSidebar();
+    const sidebar = new chemSidebar(notebookTracker);
 
     sidebar.id = 'testid';
     sidebar.title.iconClass = 'dou-DaskLogo jp-SideBar-tabIcon';
