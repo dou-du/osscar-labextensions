@@ -18,11 +18,11 @@ export class chemSidebar extends Widget{
     let layout = (this.layout = new PanelLayout());
     this._notebookTracker = notebookTracker;
 
-    const renderOnSaveCheckbox = ReactWidget.create(
+    const renderPeriodicTable = ReactWidget.create(
     <input
       className = "pt_button"
       type = "button"
-      value="Open periodic table"
+      // value="Open periodic table"
       draggable = {true}
       onDragOver = {ev => {ev.preventDefault()}}
       onDragStart={ev => ev.dataTransfer.setData("text", 'from aiidalab_widget_periodictable import PTableWidget\nPTable = PTableWidget()\ndisplay(PTable)')}
@@ -50,7 +50,38 @@ export class chemSidebar extends Widget{
     />
 )
 
+const renderJmol = ReactWidget.create(
+<input
+  className = "jmol_button"
+  type = "button"
+  // value="Open periodic table"
+  draggable = {true}
+  onDragOver = {ev => {ev.preventDefault()}}
+  onDragStart={ev => ev.dataTransfer.setData("text", 'from jmolwidgets import WidgetJmol\njmol = WidgetJmol()\ndisplay(jmol)')}
+  onClick={() => {
+    const current = this._notebookTracker.currentWidget;
+
+    if (current) {
+      // return NotebookActions.hideCode(current.content);
+      // return current.content.widgets[0].hide();
+
+      current.content.widgets.forEach(cell => {
+        if (
+          current.content.isSelectedOrActive(cell) &&
+          cell.model.type === 'code'
+        ) {
+          cell.model.value.text = 'from jmolwidgets import WidgetJmol\njmol = WidgetJmol()\ndisplay(jmol)'; 
+          CodeCell.execute(cell as CodeCell, current.session);
+          console.log(cell.model.value.text);
+        }
+      });
+    }
+  }}
+/>
+)
+
     // renderOnSaveCheckbox.add("pt_button");
-    layout.addWidget(renderOnSaveCheckbox);
+    layout.addWidget(renderPeriodicTable);
+    layout.addWidget(renderJmol);
   }
 }

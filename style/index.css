@@ -18,19 +18,17 @@
 .pt_button {
   border: 0;
   line-height: 2.5;
-  padding: 0 20px;
+  height: 150px;
+  width: 150px;
   font-size: 1rem;
-  text-align: center;
+  text-align: bottom;
   color: #fff;
   text-shadow: 1px 1px 1px #000;
-  border-radius: 10px;
-  background-color: rgba(220, 0, 0, 1);
-  background-image: linear-gradient(to top left,
-                                    rgba(0, 0, 0, .2),
-                                    rgba(0, 0, 0, .2) 30%,
-                                    rgba(0, 0, 0, 0));
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-              inset -2px -2px 3px rgba(0, 0, 0, .6);
+  background-color: #000000;
+  background-image: url(periodic-table.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: 150px auto;
 }
 
 .pt_button:hover {
@@ -38,6 +36,31 @@
 }
 
 .pt_button:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.jmol_button {
+  border: 0;
+  line-height: 2.5;
+  height: 150px;
+  width: 150px;
+  font-size: 1rem;
+  text-align: bottom;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  background-color: #000000;
+  background-image: url(molecule.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: 150px auto;
+}
+
+.jmol_button:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.jmol_button:active {
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
