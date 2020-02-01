@@ -23,6 +23,7 @@ export class chemSidebar extends Widget{
     <input
       className = "pt_button"
       type = "button"
+      title = 'Periodic Table'
       // value="Open periodic table"
       draggable = {true}
       onDragOver = {ev => {ev.preventDefault()}}
@@ -53,6 +54,7 @@ export class chemSidebar extends Widget{
     <input
       className = "jmol_button"
       type = "button"
+      title = 'Jmol'
       // value="Open periodic table"
       draggable = {true}
       onDragOver = {ev => {ev.preventDefault()}}
@@ -81,6 +83,7 @@ export class chemSidebar extends Widget{
     <input
       className = "code_button"
       type = "button"
+      title = 'Code Widget Input'
       // value="Open periodic table"
       draggable = {true}
       onDragOver = {ev => {ev.preventDefault()}}

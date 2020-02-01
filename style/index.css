@@ -16,10 +16,10 @@
 }
 
 .pt_button {
-  border: 0;
+  border: 1.5px solid gold;
   line-height: 2.5;
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width:  50px;
   font-size: 1rem;
   text-align: bottom;
   color: #fff;
@@ -28,7 +28,11 @@
   background-image: url(periodic-table.svg);
   background-repeat: no-repeat;
   background-size: 100%;
-  background-size: 100px auto;
+  background-size: 45px auto;
+  background-position: center;
+  border-radius: 50%;
+  margin-right:15px;
+  margin-top:15px;
 }
 
 .pt_button:hover {
@@ -41,10 +45,10 @@
 }
 
 .jmol_button {
-  border: 0;
+  border: 1.5px solid gold;
   line-height: 2.5;
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width:  50px;
   font-size: 1rem;
   text-align: bottom;
   color: #fff;
@@ -53,7 +57,11 @@
   background-image: url(molecule.svg);
   background-repeat: no-repeat;
   background-size: 100%;
-  background-size: 100px auto;
+  background-size: 45px auto;
+  background-position: center;
+  border-radius: 50%;
+  margin-right:15px;
+  margin-top:15px;
 }
 
 .jmol_button:hover {
@@ -66,10 +74,10 @@
 }
 
 .code_button {
-  border: 0;
+  border: 1.5px solid gold;
   line-height: 2.5;
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width:  50px;
   font-size: 1rem;
   text-align: bottom;
   color: #fff;
@@ -78,7 +86,11 @@
   background-image: url(computer.svg);
   background-repeat: no-repeat;
   background-size: 100%;
-  background-size: 100px auto;
+  background-size: 45px auto;
+  background-position: center;
+  border-radius: 50%;
+  margin-right:15px;
+  margin-top:15px;
 }
 
 .code_button:hover {
