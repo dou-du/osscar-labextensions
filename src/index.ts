@@ -28,7 +28,7 @@ function activate(
 
     const sidebar = new chemSidebar(notebookTracker);
 
-    sidebar.id = 'testid';
+    sidebar.id = 'OSSCAR-ID';
     sidebar.title.iconClass = 'dou-DaskLogo jp-SideBar-tabIcon';
     sidebar.title.caption = 'OSSCAR';
 
