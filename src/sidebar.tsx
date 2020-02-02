@@ -13,7 +13,7 @@ import * as React from "react";
 export class chemSidebar extends Widget{
 
   private _notebookTracker: INotebookTracker;
-  private _hr: HTMLElement;
+  // private _hr: HTMLElement;
   private _Layout: PanelLayout;
   private _outputarea: OutputArea;
 
@@ -23,7 +23,7 @@ export class chemSidebar extends Widget{
     let layout = (this.layout = new PanelLayout());
     this._Layout = layout;
     this._notebookTracker = notebookTracker;
-    this._hr = document.createElement('hr');
+    // this._hr = document.createElement('hr');
 
     const renderPeriodicTable = ReactWidget.create(
       <div className = "my-div">
@@ -49,6 +49,11 @@ export class chemSidebar extends Widget{
             ) {
               cell.model.value.text = 'from aiidalab_widget_periodictable import PTableWidget\nPTable = PTableWidget()\ndisplay(PTable)';
               CodeCell.execute(cell as CodeCell, current.session);
+              if (this._outputarea !== undefined){
+                this._Layout.removeWidgetAt(-1);
+              }
+              this._outputarea = (cell as CodeCell).outputArea;
+              this.add_outputarea();
               console.log(cell.model.value.text);
             }
           });
@@ -80,8 +85,11 @@ export class chemSidebar extends Widget{
             ) {
               cell.model.value.text = 'from jmolwidgets import WidgetJmol\njmol = WidgetJmol()\ndisplay(jmol)';
               CodeCell.execute(cell as CodeCell, current.session);
+              if (this._outputarea !== undefined){
+                this._Layout.removeWidgetAt(-1);
+              }
               this._outputarea = (cell as CodeCell).outputArea;
-              this.add_jmol();
+              this.add_outputarea();
               // layout.addWidget((cell as CodeCell).outputArea);
             }
           });
@@ -115,22 +123,29 @@ export class chemSidebar extends Widget{
               'code_widget = WidgetCodeInput(function_name="my_example_code")\n' +
               'display(code_widget)';
               CodeCell.execute(cell as CodeCell, current.session);
+              if (this._outputarea !== undefined){
+                this._Layout.removeWidgetAt(-1);
+              }
+              this._outputarea = (cell as CodeCell).outputArea;
+              this.add_outputarea();
               console.log(cell.model.value.text);
             }
           });
         }
       }}
     />
+
+    <hr />
     </div>
 )
 
     // renderOnSaveCheckbox.add("pt_button");
     layout.addWidget(renderPeriodicTable);
-    layout.parent.node.appendChild(this._hr);
+    // layout.parent.node.appendChild(this._hr);
 
   }
 
-  add_jmol(): void{
+  add_outputarea(): void{
     this._Layout.addWidget(this._outputarea);
   }
 }
