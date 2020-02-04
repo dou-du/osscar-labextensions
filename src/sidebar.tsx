@@ -10,6 +10,9 @@ import { OutputArea } from "@jupyterlab/outputarea";
 
 import * as React from "react";
 
+// import $ from "jquery";
+// import * as _ from "underscore";
+
 export class chemSidebar extends Widget{
 
   private _notebookTracker: INotebookTracker;
@@ -84,12 +87,15 @@ export class chemSidebar extends Widget{
               cell.model.type === 'code'
             ) {
               cell.model.value.text = 'from jmolwidgets import WidgetJmol\njmol = WidgetJmol()\ndisplay(jmol)';
+              console.log((cell as CodeCell).inputArea.node.children[0].innerHTML + "#######");
               CodeCell.execute(cell as CodeCell, current.session);
+              console.log((cell as CodeCell).inputArea.node.children[0].innerHTML + "&&&&&&&");
               if (this._outputarea !== undefined){
                 this._Layout.removeWidgetAt(-1);
               }
               this._outputarea = (cell as CodeCell).outputArea;
               this.add_outputarea();
+              // console.log((cell as CodeCell).inputArea.node.children[0].innerHTML + "$$$$$$$$$$");
               // layout.addWidget((cell as CodeCell).outputArea);
             }
           });
@@ -123,6 +129,7 @@ export class chemSidebar extends Widget{
               'code_widget = WidgetCodeInput(function_name="my_example_code")\n' +
               'display(code_widget)';
               CodeCell.execute(cell as CodeCell, current.session);
+              (cell as CodeCell).inputArea.promptNode.remove();
               if (this._outputarea !== undefined){
                 this._Layout.removeWidgetAt(-1);
               }
@@ -141,11 +148,11 @@ export class chemSidebar extends Widget{
 
     // renderOnSaveCheckbox.add("pt_button");
     layout.addWidget(renderPeriodicTable);
-    // layout.parent.node.appendChild(this._hr);
-
+    let a: HTMLElement = document.createElement('hr');
+    layout.parent.node.appendChild(a);
   }
 
-  add_outputarea(): void{
-    this._Layout.addWidget(this._outputarea);
+    add_outputarea() {
+      this._Layout.addWidget(this._outputarea);
   }
 }
