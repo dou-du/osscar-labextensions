@@ -31,42 +31,6 @@ export class chemSidebar extends Widget{
     const renderPeriodicTable = ReactWidget.create(
       <div className = "my-div">
     <input
-      className = "pt_button"
-      type = "button"
-      title = 'Periodic Table'
-      // value="Open periodic table"
-      draggable = {true}
-      onDragOver = {ev => {ev.preventDefault()}}
-      onDragStart={ev => ev.dataTransfer.setData("text", 'from aiidalab_widget_periodictable import PTableWidget\nPTable = PTableWidget()\ndisplay(PTable)')}
-      onClick={() => {
-        const current = this._notebookTracker.currentWidget;
-
-        if (current) {
-          // return NotebookActions.hideCode(current.content);
-          // return current.content.widgets[0].hide();
-
-          current.content.widgets.forEach(cell => {
-            if (
-              current.content.isSelectedOrActive(cell) &&
-              cell.model.type === 'code'
-            ) {
-              cell.model.value.text = 'from aiidalab_widget_periodictable import PTableWidget\nPTable = PTableWidget()\ndisplay(PTable)';
-              CodeCell.execute(cell as CodeCell, current.session);
-              if (this._outputarea !== undefined){
-                this._Layout.removeWidgetAt(-1);
-              }
-              this._outputarea = (cell as CodeCell).outputArea;
-              this.add_outputarea();
-              console.log(cell.model.value.text);
-            }
-          });
-        }
-
-        console.log(this._notebookTracker.size + "test is working. &&&");
-      }}
-    />
-
-    <input
       className = "jmol_button"
       type = "button"
       title = 'Jmol'
@@ -102,46 +66,6 @@ export class chemSidebar extends Widget{
         }
       }}
     />
-
-    <input
-      className = "code_button"
-      type = "button"
-      title = 'Code Widget Input'
-      // value="Open periodic table"
-      draggable = {true}
-      onDragOver = {ev => {ev.preventDefault()}}
-      onDragStart={ev => ev.dataTransfer.setData("text", 'from widget_code_input import WidgetCodeInput\n'+
-      'code_widget = WidgetCodeInput(function_name="my_example_code")\n' +
-      'display(code_widget)')}
-      onClick={() => {
-        const current = this._notebookTracker.currentWidget;
-
-        if (current) {
-          // return NotebookActions.hideCode(current.content);
-          // return current.content.widgets[0].hide();
-
-          current.content.widgets.forEach(cell => {
-            if (
-              current.content.isSelectedOrActive(cell) &&
-              cell.model.type === 'code'
-            ) {
-              cell.model.value.text = 'from widget_code_input import WidgetCodeInput\n'+
-              'code_widget = WidgetCodeInput(function_name="my_example_code")\n' +
-              'display(code_widget)';
-              CodeCell.execute(cell as CodeCell, current.session);
-              (cell as CodeCell).inputArea.promptNode.remove();
-              if (this._outputarea !== undefined){
-                this._Layout.removeWidgetAt(-1);
-              }
-              this._outputarea = (cell as CodeCell).outputArea;
-              this.add_outputarea();
-              console.log(cell.model.value.text);
-            }
-          });
-        }
-      }}
-    />
-
     <hr />
     </div>
 )
