@@ -29,8 +29,9 @@ export class chemSidebar extends Widget{
     // this._hr = document.createElement('hr');
 
     const renderPeriodicTable = ReactWidget.create(
+      <div>
       <div className = "my-div">
-    <input
+      <input
       className = "pt_button"
       type = "button"
       title = 'Periodic Table'
@@ -64,9 +65,9 @@ export class chemSidebar extends Widget{
 
         console.log(this._notebookTracker.size + "test is working. &&&");
       }}
-    />
+      />
 
-    <input
+      <input
       className = "jmol_button"
       type = "button"
       title = 'Jmol'
@@ -101,9 +102,9 @@ export class chemSidebar extends Widget{
           });
         }
       }}
-    />
+      />
 
-    <input
+      <input
       className = "code_button"
       type = "button"
       title = 'Code Widget Input'
@@ -140,11 +141,12 @@ export class chemSidebar extends Widget{
           });
         }
       }}
-    />
+      />
 
-    <hr />
-    </div>
-)
+      </div>
+      <hr />
+      </div>
+    )
 
     // renderOnSaveCheckbox.add("pt_button");
     layout.addWidget(renderPeriodicTable);
@@ -152,7 +154,7 @@ export class chemSidebar extends Widget{
     layout.parent.node.appendChild(a);
   }
 
-    add_outputarea() {
-      this._Layout.addWidget(this._outputarea);
+  add_outputarea() {
+    this._Layout.addWidget(this._outputarea);
   }
 }
